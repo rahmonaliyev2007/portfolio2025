@@ -9,6 +9,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { ArrowRight, Briefcase, ChevronDown, Code, Cog, Download, Github, GridIcon, HomeIcon, Instagram, LayoutGrid, LayoutTemplate, Linkedin, Mail, MapIcon, MenuIcon, Paintbrush, Phone, Plane, Send, User, Users } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
+import 'animate.css';
 const App: React.FC = () => {
   const [activeTab, setActiveTab] = useState("work");
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -190,7 +191,7 @@ const App: React.FC = () => {
     { icon: <Mail />, link: '' },
   ];
 
-  const sendUserInfoToTelegram = async ({name, surname, email, phone, message}:{name:string, surname:string, email:string, phone:string, message:string}) => {
+  const sendUserInfoToTelegram = async ({ name, surname, email, phone, message }: { name: string, surname: string, email: string, phone: string, message: string }) => {
     try {
       await fetch(`https://api.telegram.org/bot7696673947:AAEj2CAlIWe-9IHkHNKbM-D1UUwPNpCmKwA/sendMessage`, {
         method: "POST",
@@ -255,23 +256,23 @@ ${phone ? `<b>Phone Number:</b> ${phone}` : ""}
 
         <section id="home" ref={heroRef} className="flex flex-col items-center justify-center min-h-screen px-6 pt-20">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="mb-6 text-4xl font-bold tracking-tight md:text-6xl">
-              <span className="block">Crafting Digital</span>
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-300">Experiences</span>
+            <h1 className="mb-6 text-4xl font-bold tracking-tight md:text-6xl animate__animated animate__fadeIn animate__delay-2s">
+              <span className="block animate__animated animate__fadeIn animate__delay-2s">Front-end Developer</span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-300 animate__animated animate__fadeIn animate__delay-0.1s">Abdulaziz Raxmonaliyev</span>
             </h1>
-            <p className="max-w-xl mx-auto mb-10 text-lg text-purple-100/80">
-              I design and develop immersive digital experiences that blend creativity with cutting-edge technology. Specializing in interactive interfaces and motion design.
+            <p className="max-w-xl mx-auto mb-10 text-lg text-purple-100/80 animate__animated animate__fadeIn animate__delay-3s">
+              I am a frontend developer who designs and develops immersive digital experiences by blending creativity with cutting-edge technology. My expertise lies in creating interactive interfaces and motion design.
             </p>
-            <div className="flex flex-col space-y-4 sm:flex-row sm:space-y-0 sm:space-x-4 justify-center">
-              <Button onClick={() => document.querySelector('#work')?.scrollIntoView({ behavior: 'smooth' })} className="bg-gradient-to-r duration-500 transition-all from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white cursor-pointer !rounded-button" >
+            <div className="flex flex-col space-y-4 sm:flex-row sm:space-y-0 sm:space-x-4 justify-center animate__animated animate__fadeIn animate__delay-3s">
+              <Button onClick={() => document.querySelector('#work')?.scrollIntoView({ behavior: 'smooth' })} className="bg-gradient-to-r duration-500 transition-all from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white cursor-pointer !rounded-button ">
                 View My Work <ArrowRight />
               </Button>
 
-              <Button variant="outline" onClick={() => document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })} className="border-purple-400 text-purple-500 hover:bg-purple-800/30 hover:text-white cursor-pointer !rounded-button" >
+              <Button variant="outline" onClick={() => document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })} className="border-purple-400 text-purple-500 hover:bg-purple-800/30 hover:text-white cursor-pointer !rounded-button">
                 Contact Me
               </Button>
             </div>
-            <div className=" flex justify-center w-full animate-bounce text-purple-300 items-end mt-10">
+            <div className="flex justify-center w-full animate-bounce text-purple-300 items-end mt-10 animate__animated animate__fadeIn animate__delay-7s">
               <ChevronDown className='text-purple-300' size={20} />
             </div>
           </div>

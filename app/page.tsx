@@ -272,7 +272,7 @@ ${phone ? `<b>Phone Number:</b> ${phone}` : ""}
                 Contact Me
               </Button>
             </div>
-            <div className="flex justify-center w-full animate-bounce text-purple-300 items-end mt-10 animate__animated animate__fadeIn animate__delay-7s">
+            <div className="flex justify-center w-full !animate-bounce text-purple-300 items-end mt-10 animate__animated animate__fadeIn animate__delay-3s">
               <ChevronDown className='text-purple-300' size={20} />
             </div>
           </div>

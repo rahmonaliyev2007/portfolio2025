@@ -190,6 +190,44 @@ const App: React.FC = () => {
     { icon: <Mail />, link: '' },
   ];
 
+  const sendUserInfoToTelegram = async ({name, surname, email, phone, message}:{name:string, surname:string, email:string, phone:string, message:string}) => {
+    try {
+      await fetch(`https://api.telegram.org/bot7696673947:AAEj2CAlIWe-9IHkHNKbM-D1UUwPNpCmKwA/sendMessage`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          chat_id: 7498582082,
+          text: `<b>You have a new inquiry</b>
+          
+<b>Client:</b> ${name} ${surname}
+          
+<b>Email:</b> ${email}
+          
+${phone ? `<b>Phone Number:</b> ${phone}` : ""}
+          
+<b>Message:</b> ${message}`,
+          parse_mode: 'HTML',
+        }),
+      });
+    } catch (telegramErr) {
+      console.error(telegramErr);
+    }
+  };
+
+  const [formData, setFormData] = useState({ name: "", surname: "", email: "", phone: "", message: "", });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    await sendUserInfoToTelegram(formData);
+    alert("Message sent successfully!");
+  };
   return (
     <div className="relative w-full min-h-screen overflow-x-hidden text-white">
       <div className="fixed inset-0 bg-gradient-to-br from-purple-950 via-purple-900 to-purple-800 z-0"></div>
@@ -455,25 +493,25 @@ const App: React.FC = () => {
 
                   <div>
                     <h3 className="text-xl font-medium mb-4 text-pink-100/80">Send Me a Message</h3>
-                    <form className="space-y-4">
+                    <form onSubmit={handleSubmit} className="space-y-4">
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div>
-                          <Input required={true} type="text" placeholder="Your Name" className="bg-purple-900/30 border-purple-700/50 focus:border-purple-500 text-white placeholder:text-purple-400/70" />
+                          <Input value={formData.name} onChange={handleChange} required={true} name='name' type="text" placeholder="Your Name" className="bg-purple-900/30 border-purple-700/50 focus:border-purple-500 text-white placeholder:text-purple-400/70" />
                         </div>
                         <div>
-                          <Input required={true} type="text" placeholder="Your Surname" className="bg-purple-900/30 border-purple-700/50 focus:border-purple-500 text-white placeholder:text-purple-400/70" />
+                          <Input value={formData.surname} onChange={handleChange} required={true} name='surname' type="text" placeholder="Your Surname" className="bg-purple-900/30 border-purple-700/50 focus:border-purple-500 text-white placeholder:text-purple-400/70" />
                         </div>
                       </div>
                       <div>
-                        <Input required={true} type="email" placeholder="Your Email" className="bg-purple-900/30 border-purple-700/50 focus:border-purple-500 text-white placeholder:text-purple-400/70" />
+                        <Input value={formData.email} onChange={handleChange} required={true} name='email' type="email" placeholder="Your Email" className="bg-purple-900/30 border-purple-700/50 focus:border-purple-500 text-white placeholder:text-purple-400/70" />
                       </div>
                       <div>
-                        <Input type="tel" placeholder="Your Phone number (optional)" className="bg-purple-900/30 border-purple-700/50 focus:border-purple-500 text-white placeholder:text-purple-400/70" />
+                        <Input value={formData.phone} onChange={handleChange} type="tel" name='phone' placeholder="Your Phone number (optional)" className="bg-purple-900/30 border-purple-700/50 focus:border-purple-500 text-white placeholder:text-purple-400/70" />
                       </div>
                       <div>
-                        <Textarea required={true} placeholder="Your Message" rows={4} className="bg-purple-900/30 border-purple-700/50 focus:border-purple-500 text-white placeholder:text-purple-400/70" />
+                        <Textarea value={formData.message} onChange={handleChange} required={true} name='message' placeholder="Your Message" rows={4} className="bg-purple-900/30 border-purple-700/50 focus:border-purple-500 text-white placeholder:text-purple-400/70" />
                       </div>
-                      <Button disabled={true} className="w-full bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white cursor-pointer !rounded-button">
+                      <Button className="w-full bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white cursor-pointer !rounded-button">
                         Send Message
                         <Send />
                       </Button>

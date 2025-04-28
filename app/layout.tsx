@@ -25,7 +25,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <link rel="icon" href="" />
+        <meta name="theme-color" content="#0f0a1c" />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}

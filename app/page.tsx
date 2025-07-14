@@ -4,9 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Badge } from "@/components/ui/badge";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { ArrowRight, Briefcase, ChevronDown, Code, Cog, Download, Github, GridIcon, HomeIcon, Instagram, LayoutGrid, LayoutTemplate, Linkedin, Mail, MapIcon, MenuIcon, Paintbrush, Phone, Plane, Send, User, Users } from 'lucide-react';
+import { ArrowRight, Briefcase, ChevronDown, Code, Cog, Github, HomeIcon, Instagram, LayoutTemplate, Linkedin, Mail, MapIcon, Paintbrush, Phone, Send, User, Users } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import 'animate.css';
@@ -85,10 +83,6 @@ const App: React.FC = () => {
     }, (duration + delay) * 1000);
   };
 
- 
-
-
-
   const services = [
     {
       title: "Frontend Development",
@@ -111,8 +105,6 @@ const App: React.FC = () => {
       description: "Leading development teams effectively by managing tasks, maintaining code quality, and promoting collaboration."
     }
   ];
-
- 
 
   const socialLinks = [
     { icon: <Github />, link: 'https://github.com/rahmonaliyev2007' },

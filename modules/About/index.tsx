@@ -58,7 +58,7 @@ const About = () => {
                     <div className="relative">
                         <div className="relative z-10 rounded-lg overflow-hidden border border-purple-500/30 shadow-xl shadow-purple-900/30">
                             <img
-                                src="https://i.postimg.cc/MZBBq87z/image.png"
+                                src=""
                                 alt="Abdulaziz Portrait"
                                 className="w-full h-full object-cover"
                             />

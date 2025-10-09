@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { ArrowRight, Briefcase, ChevronDown, Code, Cog, Github, HomeIcon, Instagram, LayoutTemplate, Linkedin, Mail, MapIcon, Paintbrush, Phone, Send, User, Users } from 'lucide-react';
+import { ArrowDown, ArrowRight, Briefcase, ChevronDown, Code, Cog, Github, HomeIcon, Instagram, LayoutTemplate, Linkedin, Mail, MapIcon, Paintbrush, Phone, Send, User, Users } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import 'animate.css';
@@ -94,16 +94,18 @@ const App: React.FC = () => {
       icon: <LayoutTemplate />,
       description: "Writing scalable and maintainable code with TypeScript to build robust web solutions."
     },
-    {
-      title: "UI Development",
-      icon: <Paintbrush />,
-      description: "Creating clean, user-friendly, and accessible designs using TailwindCSS and ShadCN UI components."
-    },
-    {
-      title: "Team Leadership",
-      icon: <Users />,
-      description: "Leading development teams effectively by managing tasks, maintaining code quality, and promoting collaboration."
-    }
+   {
+    title: "UI Implementation",
+    icon: <Paintbrush />,
+    description:
+      "Translating ready-made designs into pixel-perfect, responsive layouts using TailwindCSS and ShadCN UI.",
+  },
+  {
+    title: "Collaboration",
+    icon: <Users />,
+    description:
+      "Working efficiently in teams, contributing to clean codebases, and following best practices for performance and maintainability.",
+  },
   ];
 
   const socialLinks = [
@@ -149,6 +151,7 @@ ${phone ? `<b>Phone Number:</b> ${phone}` : ""}
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     await sendUserInfoToTelegram(formData);
+    setFormData({ name: "", surname: "", email: "", phone: "", message: "" });
     alert("Message sent successfully!");
   };
   return (
@@ -179,19 +182,19 @@ ${phone ? `<b>Phone Number:</b> ${phone}` : ""}
         <section id="home" ref={heroRef} className="flex flex-col items-center justify-center min-h-screen px-6 pt-20">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="mb-6 text-4xl font-bold tracking-tight md:text-6xl animate__animated animate__fadeIn animate__delay-2s">
-              <span className="block animate__animated animate__fadeIn animate__delay-2s">Front-end Developer</span>
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-300 animate__animated animate__fadeIn animate__delay-0.1s">Abdulaziz Raxmonaliyev</span>
+              <span className="block animate__animated animate__fadeIn animate__delay-2s">Frontend Developer</span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-300 animate__animated animate__fadeIn animate__delay-0.1s" style={{fontFamily:"serif"}}>Abdulaziz Raxmonaliyev</span>
             </h1>
             <p className="max-w-xl mx-auto mb-10 text-lg text-purple-100/80 animate__animated animate__fadeIn animate__delay-3s">
-              I am a frontend developer who designs and develops immersive digital experiences by blending creativity with cutting-edge technology. My expertise lies in creating interactive interfaces and motion design.
+              I’m Abdulaziz, a frontend developer focused on building modern and responsive web applications. Check out my projects below or get in touch to collaborate. 
             </p>
             <div className="flex flex-col space-y-4 sm:flex-row sm:space-y-0 sm:space-x-4 justify-center animate__animated animate__fadeIn animate__delay-3s">
               <Button onClick={() => document.querySelector('#work')?.scrollIntoView({ behavior: 'smooth' })} className="bg-gradient-to-r duration-500 transition-all from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white cursor-pointer !rounded-button ">
-                View My Work <ArrowRight />
+                View My Works <ArrowDown />
               </Button>
 
               <Button variant="outline" onClick={() => document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })} className="border-purple-400 text-purple-500 hover:bg-purple-800/30 hover:text-white cursor-pointer !rounded-button">
-                Contact Me
+                Get in Touch <Mail />
               </Button>
             </div>
             <div className="flex justify-center w-full !animate-bounce text-purple-300 items-end mt-10 animate__animated animate__fadeIn animate__delay-3s">

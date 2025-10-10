@@ -33,7 +33,7 @@ import React from 'react'
       image: "https://i.postimg.cc/8cKZ2BvF/Screenshot-2025-10-09-at-22-46-23.png",
       description: "Lama IT Studio MCHJ haqida malumot beruvchi sayt.",
       github: "https://github.com/rahmonaliyev2007/lama-it-studio",
-      demo: "https://rahmonaliyev202506.vercel.app",
+      demo: "https://lama-it-studio.vercel.app",
       used: ["NextJS", "TypeScript", "TailwindCSS", "CSS"]
     },
     {
